@@ -1,0 +1,260 @@
+/* =========================================================
+   ECO VIDA - STYLE.CSS
+   Entrega II - CSS3 com Design System, Flexbox e Grid
+   ========================================================= */
+
+/* -------------------------
+   SISTEMA DE DESIGN
+-------------------------- */
+:root {
+  /* Cores principais */
+  --cor-primaria: #2e7d32;
+  --cor-secundaria: #66bb6a;
+  --cor-terciaria: #a5d6a7;
+
+  /* Cores neutras */
+  --cor-clara: #f9f9f9;
+  --cor-media: #e0e0e0;
+  --cor-escura: #212121;
+
+  /* Acentos */
+  --cor-alerta: #ffb300;
+  --cor-erro: #e53935;
+  --cor-sucesso: #43a047;
+
+  /* Tipografia */
+  --fonte-principal: "Poppins", Arial, sans-serif;
+  --tamanho-xxs: 0.75rem;
+  --tamanho-xs: 0.875rem;
+  --tamanho-sm: 1rem;
+  --tamanho-md: 1.25rem;
+  --tamanho-lg: 1.5rem;
+  --tamanho-xl: 2rem;
+
+  /* Espaçamento (escala modular 8px) */
+  --esp-1: 8px;
+  --esp-2: 16px;
+  --esp-3: 24px;
+  --esp-4: 32px;
+  --esp-5: 48px;
+  --esp-6: 64px;
+}
+
+/* -------------------------
+   RESET E BASE
+-------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fonte-principal);
+  color: var(--cor-escura);
+  background-color: var(--cor-clara);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* -------------------------
+   CABEÇALHO E NAVEGAÇÃO
+-------------------------- */
+header {
+  background-color: var(--cor-primaria);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--esp-2) var(--esp-3);
+}
+
+header h1 {
+  font-size: var(--tamanho-lg);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--esp-3);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--cor-terciaria);
+}
+
+/* -------------------------
+   MENU HAMBÚRGUER (MOBILE)
+-------------------------- */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 25px;
+  background: white;
+  margin: 4px;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: var(--cor-primaria);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: var(--esp-3);
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* -------------------------
+   LAYOUT PRINCIPAL
+-------------------------- */
+main {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--esp-4);
+  padding: var(--esp-4);
+}
+
+section {
+  grid-column: span 12;
+  background-color: white;
+  border-radius: 12px;
+  padding: var(--esp-3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* -------------------------
+   CARDS DE PROJETOS
+-------------------------- */
+article {
+  background: var(--cor-clara);
+  border: 1px solid var(--cor-media);
+  border-radius: 10px;
+  padding: var(--esp-3);
+  margin-bottom: var(--esp-3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* -------------------------
+   FORMULÁRIOS
+-------------------------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+  padding: var(--esp-2);
+  border: 1px solid var(--cor-media);
+  border-radius: 6px;
+  font-size: var(--tamanho-sm);
+}
+
+input[type="submit"] {
+  background-color: var(--cor-secundaria);
+  color: white;
+  border: none;
+  padding: var(--esp-2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: var(--tamanho-md);
+}
+
+input[type="submit"]:hover {
+  background-color: var(--cor-primaria);
+}
+
+/* -------------------------
+   COMPONENTES DE FEEDBACK
+-------------------------- */
+.alerta {
+  background-color: var(--cor-alerta);
+  color: var(--cor-escura);
+  padding: var(--esp-2);
+  border-radius: 8px;
+}
+
+.sucesso {
+  background-color: var(--cor-sucesso);
+  color: white;
+  padding: var(--esp-2);
+  border-radius: 8px;
+}
+
+/* -------------------------
+   RODAPÉ
+-------------------------- */
+footer {
+  background-color: var(--cor-escura);
+  color: white;
+  text-align: center;
+  padding: var(--esp-3);
+  margin-top: var(--esp-4);
+}
+
+/* -------------------------
+   BREAKPOINTS RESPONSIVOS
+-------------------------- */
+@media (max-width: 1024px) {
+  main {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+    padding: var(--esp-2);
+  }
+
+  section {
+    padding: var(--esp-2);
+  }
+
+  header h1 {
+    font-size: var(--tamanho-md);
+  }
+}
