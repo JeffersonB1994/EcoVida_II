@@ -56,15 +56,33 @@ body {
   line-height: 1.6;
 }
 
+/* -------------------------
+   IMAGENS PADRONIZADAS
+-------------------------- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin: var(--esp-2) auto;
+}
+
+/* Imagens específicas por tipo */
+
 .img-sobre {
-  width: 400px;
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
 }
 
 .img-projeto {
-  width: 250px;
-  height: 180px;
-  object-fit: cover;
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
 }
+
 
 /* -------------------------
    CABEÇALHO E NAVEGAÇÃO
