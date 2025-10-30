@@ -56,9 +56,14 @@ body {
   line-height: 1.6;
 }
 
-img {
-  max-width: 100%;
-  border-radius: 8px;
+.img-sobre {
+  width: 400px;
+}
+
+.img-projeto {
+  width: 250px;
+  height: 180px;
+  object-fit: cover;
 }
 
 /* -------------------------
